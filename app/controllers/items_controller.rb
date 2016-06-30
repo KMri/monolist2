@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
         keyword: params[:q]
         # ,imageFlag: 1,
       )
-      @items = response.first(100)
+      @items = response.first(20)
     end
   end
 
