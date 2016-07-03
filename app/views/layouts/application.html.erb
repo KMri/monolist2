@@ -2,9 +2,12 @@
 <html>
 <head>
   <% if content_for?(:head) %>
+    <title><%= yield :title %></title>
     <%= yield :head %>
   <% else %>
     <title>Monolist</title>
+    <!--<meta property="og:title" content="Monolist">-->
+    <meta property="og:description" content="Monolistのページです。">
   <% end %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
