@@ -1,0 +1,37 @@
+<h1 style='text-align: center;'>Have Ranking</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							rank
+						</th>
+						<th>
+							name
+						</th>
+						<th>
+							users
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @item_hs.each.with_index(1) do |(item_id, cnt), idx| %>
+						<tr>
+							<td>
+								<%= idx %>位
+							</td>
+							<td>
+								<%= Item.find(item_id).title %>
+							</td>
+							<td>
+								<%= cnt %>人
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

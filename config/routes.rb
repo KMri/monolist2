@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'ranking/show'
+
   root 'welcome#index'
 
   get    'signup', to: 'users#new'
   get    'login' , to: 'sessions#new'
   post   'login' , to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  
+  get '/ranking/want', to: 'ranking#want', as: :want
+  get '/ranking/have', to: 'ranking#have', as: :have
+  # get 'want', to: 'ranking#want'
+  # get 'have', to: 'ranking#have'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
@@ -13,9 +20,9 @@ Rails.application.routes.draw do
   resources :ownerships, only: [:create, :destroy]
   resources :items , only: [:new , :show]
   
-  # resources :users do
+  # resource :ranking do
   #   member do
-  #     get :followings, :followers
+  #     get :want, :have
   #   end
   # end
 
